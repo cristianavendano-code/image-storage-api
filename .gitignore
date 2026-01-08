@@ -1,0 +1,86 @@
+﻿# ========================================
+# CREDENCIALES Y SECRETOS
+# ========================================
+appsettings.json
+appsettings.*.json
+*.env
+*.key
+secrets.json
+
+# ========================================
+# VISUAL STUDIO
+# ========================================
+.vs/
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+
+# ========================================
+# BUILD OUTPUTS
+# ========================================
+[Bb]in/
+[Oo]bj/
+[Ll]og/
+[Ll]ogs/
+
+# ========================================
+# NUGET PACKAGES
+# ========================================
+*.nupkg
+*.snupkg
+**/packages/*
+!**/packages/build/
+*.nuget.props
+*.nuget.targets
+
+# ========================================
+# TEMPORALES DE VISUAL STUDIO
+# ========================================
+*.tmp
+*.log
+*.vspscc
+*.vssscc
+.builds
+*.pidb
+*.svclog
+*.scc
+
+# ========================================
+# RIDER (JetBrains)
+# ========================================
+.idea/
+*.sln.iml
+
+# ========================================
+# VS CODE
+# ========================================
+.vscode/
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+
+# ========================================
+# BASES DE DATOS LOCALES
+# ========================================
+*.mdf
+*.ldf
+*.ndf
+
+# ========================================
+# SISTEMA OPERATIVO
+# ========================================
+# Windows
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# Linux
+*~
