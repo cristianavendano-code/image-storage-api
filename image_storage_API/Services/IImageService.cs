@@ -12,40 +12,36 @@ namespace image_storage_API.Services
         /// <summary>
         /// Obtiene todas las imagenes publicas
         /// </summary>
-        List<ImageModel> GetAllPublicImages();
+        List<ImageListDTO> GetPublicImages(int page = 1, int pageSize = 20);
 
         /// <summary>
-        /// Obtiene todas las imagenes del usuario (privadas y publicas)
+        /// Obtiene todas las imagenes de un usuario especifico
         /// </summary>
-        List<ImageModel> GetAllUserImages(int idUser);
+        List<ImageListDTO> GetUserImages(int userId, bool includePrivate = false);
 
         /// <summary>
-        /// Obtiene una imagen del usuario por ID
+        /// Obtiene una imagen completa por ID (con bytes)
         /// </summary>
-        /// <param name="id">ID de la imagen</param>
-        /// <returns>ImageModel si existe, null si no</returns>
-        ImageModel? GetImageById(int id, int idUser);
+        ImageModel? GetImageById(int id);
 
         /// <summary>
-        /// Crea una nueva imagen
+        /// Sube una nueva imagen
         /// </summary>
-        /// <param name="dto">Datos de la imagen a crear</param>
-        /// <returns>Imagen creada con ID asignado</returns>
-        ImageModel Create(CreateImageDTO dto, int idUser);
+        ImageModel UploadImage(IFormFile file, string? description, bool isPrivate, int userId);
 
         /// <summary>
-        /// Actualiza las propiedades de una imagen existente
+        /// Actualiza descripción o privacidad de una imagen
         /// </summary>
-        /// <param name="id">ID de la imagen</param>
-        /// <param name="dto">Datos a actualizar</param>
-        /// <returns>Imagen actualizada si existe, null si no</returns>
-        ImageModel? Update(int id, UpdateImageDTO dto, int idUser);
+        ImageModel? UpdateImage(int id, UpdateImageDTO dto, int userId);
 
         /// <summary>
-        /// Elimina una imagen
+        /// Elimina una imagen (solo el dueño)
         /// </summary>
-        /// <param name="id">ID de la imagen</param>
-        /// <returns>true si se eliminó, false si no existía</returns>
-        bool Delete(int id, int idUser);
+        bool DeleteImage(int id, int userId);
+
+        /// <summary>
+        /// Verifica si un usuario es dueño de una imagen
+        /// </summary>
+        bool IsOwner(int imageId, int userId);
     }
 }
