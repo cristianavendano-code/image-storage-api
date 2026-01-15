@@ -2,7 +2,6 @@
 using image_storage_API.Models;
 using image_storage_API.Models.DTOs;
 using MySql.Data.MySqlClient;
-using System.Diagnostics.Eventing.Reader;
 
 namespace image_storage_API.Services
 {
@@ -12,7 +11,7 @@ namespace image_storage_API.Services
         private readonly ILogger<ImageService> _logger;
 
         private const int MAX_FILE_SIZE = 5 * 1024 * 1024;  // 5MB
-        private static readonly string[] ALLOWED_TYPES = { "images/jpeg", "images/png", "images/gif", "images/webp" };
+        private static readonly string[] ALLOWED_TYPES = { "image/jpeg", "image/png", "image/gif", "image/webp" };
 
         public ImageService(IConfiguration configuration, ILogger<ImageService> logger)
         {
